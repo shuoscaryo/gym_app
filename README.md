@@ -1,7 +1,7 @@
 # gym_app
 react mobile app to track progress in the gym
 
-## 1 Empezar el proyecto
+## **1 Empezar el proyecto**
 * **node**: el que ejecuta JS fuera del navegador. python3 file.py = node file.js
 * **npm**: lo que instala paquetes, igual que pip
 * **nvm**: pyenv, para tener versiones de node con distintas librerías 
