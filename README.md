@@ -30,20 +30,21 @@ npx expo start --tunnel
 It is not possible to add divs manually or do normal JS DOM, here everything
 goes through react-native elements.
 View is the equivalent of div here.
-```bash
+```javascript
 import { View } from 'react-native';
 <View style={styles.container}></View>
 ```
 Text must go in between Text tags
-```bash
+```javascript
 import { Text } from 'react-native';
 <Text>Hello</Text>
 ```
 Styles are applied with StyleSheet. A variable is created with the styles and is applied to any element by adding "style={styles_var.type_of_style}" inside of the tag.
-**There is no global styles**. Each component needs to know what styles will be using. There is no cascade of styles or styles for a tag like "div {div_styles}"
-```bash
+**There is no global styles**. Each component needs to know what styles will be using. There is no cascade of styles or styles for a tag like "div {div_styles}".
+Also, it is posible to add styles directly without using a variable. Double bracket {{}} is needed for some reason, first brackets indicate a space to place something that is not a string and second ones are the dictionary.
+```javascript
 import { StyleSheet } from 'react-native';
-# styles
+// styles
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -52,6 +53,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-# Apply the styles to the View element
+// Apply the styles to the View element
 <View style={styles.container}></View>
+// avoid. but posible
+<View style={{width:100, height:100}}></View>
+```
+Images can be added with the tag Image. To add an image from the project, it has to be imported either with "require()" or "import" Best with require and put it as source inside the tag. Image is a singular tag. Path "./" is the base of the project.
+For images that are remote, **the link must be in a dictionary inside the key "uri"** and also **the width and height must be defined in style** otherwise the image wont show.
+```javascript
+import { Image } from 'react-native';
+// Local images
+const photo = require("./assets/icon.png"); // this one better
+import photo from "./assets/icon.png"; // also possible
+<Image source={photo}/>
+// Remote image
+const remote_photo = "https://stuf_and_stuf"
+<Image source = {{uri: remote_photo}} style={{width:100, height:100}}/>
 ```
