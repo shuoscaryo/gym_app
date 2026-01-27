@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
 // avoid. but posible
 <View style={{width:100, height:100}}></View>
 ```
-Images can be added with the tag Image. To add an image from the project, it has to be imported either with "require()" or "import" Best with require and put it as source inside the tag. Image is a singular tag. Path "./" is the base of the project.
+Images can be added with the tag Image. To add an image from the project, it has to be imported either with "require()" or "import" Best with require and put it as source inside the tag. Image is a singular tag. Path "./" is the folder of the current file.
 For images that are remote, **the link must be in a dictionary inside the key "uri"** and also **the width and height must be defined in style** otherwise the image wont show.
 ```javascript
 import { Image } from 'react-native';
@@ -218,7 +218,7 @@ To understand it is like creating a variable with "let" that will auto update th
 import {Button} from "react-native";
 import { useState } from "react";
 
-export default function myApp()
+export default function MyApp()
 {
   // is equivalent to
   // let num = 3;
