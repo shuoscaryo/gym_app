@@ -122,7 +122,8 @@ import { Pressable } from 'react-native';
 </Pressable>
 ```
 ### **Create custom components**
-Custom components can be created from functions. This functions must be in PascalCase or else they won't work.
+Custom components can be created from functions.
+This functions are in PascalCase (in normal React don't work otherwise).
 Parameters to the functions are passed inside curly brackets {}.
 It is important that the opening parenthesis is in the same line as the return.
 ```javascript
@@ -140,7 +141,7 @@ function CoolTexts({text1, text2})
   );
 }
 
-function myApp()
+export default function MyApp()
 {
   return (
     //...
