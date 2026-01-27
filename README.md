@@ -210,3 +210,31 @@ export default function App() {
   );
 }
 ```
+### <u>**useState**</u>
+To have things on screen that update when the things change it's necessary to use useState.
+useState takes one param that is the initial state, and returns a variable and a function to update that variable.
+To understand it is like creating a variable with "let" that will auto update the DOM and also survives outside scope.
+```javascript
+import {Button} from "react-native";
+import { useState } from "react";
+
+export default function myApp()
+{
+  // is equivalent to
+  // let num = 3;
+  // function setNum(val) {
+  //     num = val;
+  //     re_render_DOM();
+  // };
+  const [num, setNum] = useState(3);
+  let num2 = 4;
+  return (
+    <View>
+      {/* This one updates */}
+      <Button title={String(num)} onPress={()=>{setNum(num + 1);}}/>
+      {/* This one doesn't update */}
+      <Button title={String(num2)} onPress={()=>{num2 += 1;}}/>
+    </View>
+  )
+}
+```
