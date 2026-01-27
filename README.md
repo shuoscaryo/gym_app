@@ -70,3 +70,53 @@ import photo from "./assets/icon.png"; // also possible
 const remote_photo = "https://stuf_and_stuf"
 <Image source = {{uri: remote_photo}} style={{width:100, height:100}}/>
 ```
+StatusBar is also added by default in the blank template. It's the upper bar of the phone where the battery, time and wifi signal show. Style can be set to "auto" "light" or "dark" so it changes color depending on the phone setting.
+```javascript
+<StatusBar style="auto" />
+```
+The Button tag is the default button of android or IOS. The only style that works is the color that can be set with the color prop. The title property sets the text, also the prop onPress is the action.
+The other type of button that is customizable is the Pressable tag.
+```javascript
+import { Button } from 'react-native';
+<Button title="cool button" onPress={()=>alert("hello")}/>
+```
+Pressable tag is better than button because it's customizable. The style prop can take a function that is a list of elements, [] square brackets, and and the body of the tag can also be a function. It has to be either a function or static, not both. The function takes a "pressed" argument.
+The most common is style as list and static body.
+The action props are:
+* onPress: triggers when the finger touches and lifts on the pressable
+* onLongPress: triggers while holding long
+* onPressIn: triggers on touch of the pressable
+* onPressOut: triggers when the tap was inside pressable and the finger lifts anywhere on the screen
+```javascript
+import { Pressable } from 'react-native';
+// Static Pressable
+<Pressable
+  onPress={()=>alert("hello")}
+  style={{width:100, height:100}}
+>
+<Text>Hello</Text>
+</Pressable>
+// Pressable with functions
+<Pressable
+  onPress={()=>alert("hello")}
+  style={({ pressed }) => [
+    styles.base,
+    pressed && styles.pressed,
+  ]}
+>
+  {({ pressed }) => (
+    <Text style={{ opacity: pressed ? 0.5 : 1 }}>
+      Tap me
+    </Text>
+  )}
+</Pressable>
+// Most common
+<Pressable
+  style={({ pressed }) => [
+    styles.base,
+    pressed && styles.pressed,
+  ]}
+>
+  <Text>Tap me</Text>
+</Pressable>
+```
