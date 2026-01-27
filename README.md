@@ -1,7 +1,7 @@
-# gym_app
+# **gym_app**
 react mobile app to track progress in the gym
 
-## **1 Start the project**
+## <u>**1 Start the project**</u>
 * **node**: The one that runs JS outside of browsers. python3 file.py = node file.js.
 * **npm**: What installs packages, same as python's pip.
 * **nvm**: pyenv. Used to have different libraries in different projects.
@@ -26,7 +26,8 @@ cd <app-name>
 npx expo start --tunnel
 ```
 
-## **2 Develop stuff**
+## <u>**2 Develop stuff**</u>
+### **Main components**
 It is not possible to add divs manually or do normal JS DOM, here everything
 goes through react-native elements.
 View is the equivalent of div here.
@@ -119,4 +120,32 @@ import { Pressable } from 'react-native';
 >
   <Text>Tap me</Text>
 </Pressable>
+```
+### **Create custom components**
+Custom components can be created from functions. This functions must be in PascalCase or else they won't work.
+Parameters to the functions are passed inside curly brackets {}.
+It is important that the opening parenthesis is in the same line as the return.
+```javascript
+import { View, Text } from 'react-native';
+
+// PascalCase
+function CoolTexts({text1, text2})
+{
+  // First parenthesis in the same line
+  return (
+    <View>
+      <Text>{text1}</Text>
+      <Text>{text2}</Text>
+    </View>
+  );
+}
+
+function myApp()
+{
+  return (
+    //...
+    <CoolTexts text1 = "miku" text2 = "tomato"/>
+    //...
+  );
+}
 ```
