@@ -126,6 +126,7 @@ Custom components can be created from functions.
 This functions are in PascalCase (in normal React don't work otherwise).
 Parameters to the functions are passed inside curly brackets {}.
 It is important that the opening parenthesis is in the same line as the return.
+Put prop=value without spaces as standard.
 ```javascript
 import { View, Text } from 'react-native';
 
@@ -144,9 +145,68 @@ function CoolTexts({text1, text2})
 export default function MyApp()
 {
   return (
-    //...
-    <CoolTexts text1 = "miku" text2 = "tomato"/>
-    //...
+    {/* ... */}
+    <CoolTexts text1="miku" text2="tomato"/>
+    {/* ... */}
+  );
+}
+```
+The most common way to use components inside components, like a list of buttons inside a sidebar, is to put the main component with 2 tags  "\<Sidebar>\</Sidebar>" and add the components inside.
+In order to use this 2 tags there must be a parameter with name "children" in the function.
+```javascript
+import { Text, View } from "react-native";
+// random func
+function CoolTexts({text1, text2})
+{
+  return (
+    <View>
+      <Text>{text1}</Text>
+      <Text>{text2}</Text>
+    </View>
+  );
+}
+
+// function has "children" param so it can have 2 tags
+function Wrapper({ children, title})
+{
+  return (
+    <View>
+      <Text>{title}</Text>
+      {children}
+    </View>
+  );
+}
+
+export default function MyApp()
+{
+  return (
+    <Wrapper title="titulo">
+      <CoolTexts text1="Hola" text2="Miku" />
+      <CoolTexts text1="Adios" text2="Miku" />
+    </Wrapper>
+  );
+}
+```
+To add a dynamic amount of elements use the map method.
+The structure is array.map(...) and inside a function that takes one element of the container.
+Important about dynamic elements, react demands a "key" prop for each one of them that is the id of the element.
+```javascript
+export default function App() {
+  const exercises = getList();
+  //exercises is a list [] of dictionaries {}:
+  // exercises = [ {id:1, name:"bench", ...}, ... ]
+
+  return (
+    <View>
+      {exercises.map((ex) => (
+        <Cajita
+          key={ex.id}
+          name={ex.name}
+          reps={ex.reps}
+          weight={ex.weight}
+        />
+      ))}
+    </View>
   );
 }
 ```
