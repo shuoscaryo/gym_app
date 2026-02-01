@@ -1,11 +1,12 @@
 import { View, Text, StyleSheet,Image } from "react-native";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { MyTextInput } from "@components/MyTextInput";
 import { MyButton } from "@components/MyButton";
 
-export function MyBoxInput({name, style})
+export function ExerciseInput({name="name", style})
 {
     const [text, setText] = useState("");
+    const [reps, setReps] = useState(0);
     
     return (
         <View style = {[styles.main, style]}>
@@ -13,15 +14,22 @@ export function MyBoxInput({name, style})
                 source={require("@/assets/icon.png")}
                 style={styles.sidePhoto}
             />
-            <View style={[styles.sideView]}>
+            <View style={styles.sideView}>
                 <Text>{name}</Text>
-                <MyTextInput
-                    value={text}
-                    onChangeText={setText}
-                    placeholder="Write something..."
-                    autoCapitalize="characters"
-                    keyboardType="default"
-                />
+                <View style={styles.formDiv}>
+                    <MyTextInput
+                        value={text}
+                        onChangeText={setText}
+                        placeholder="Write something..."
+                        keyboardType="default"
+                    />
+                    <MyTextInput
+                        value={reps}
+                        onChangeText={setReps}
+                        placeholder="reps"
+                        keyboardType="numeric"
+                    />
+                </View>
             </View>
             <MyButton>
                 <Text>add</Text>
@@ -50,5 +58,10 @@ const styles = StyleSheet.create({
     },
     sideView: {
         flexDirection:"column",
+        gap:10,
     },
+    formDiv: {
+        flexDirection:"row",
+        gap:10,
+    }
 });

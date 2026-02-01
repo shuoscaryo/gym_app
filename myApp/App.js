@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { MyBoxInput } from '@components/MyBoxInput';
+import { ExerciseInput } from "@components/ExerciseInput";
 
 export default function App()
 {
@@ -8,6 +9,7 @@ export default function App()
     <View style={styles.container}>
         <StatusBar style="auto"/>
         <MyBoxInput name="miku" style={{minWidth:"50%"}}/>
+        <ExerciseInput/>
     </View>
     );
 }
@@ -18,5 +20,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#5bb',
         alignItems: 'center',
         justifyContent: 'center',
+        gap:10,
     },
 });
