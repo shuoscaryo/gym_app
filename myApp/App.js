@@ -2,11 +2,30 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 import { useState, useEffect } from 'react';
 import { MyTextInput } from '@components/MyTextInput';
+import { Picker } from "@react-native-picker/picker";
 
 function CoolButton()
 {
     return (null);
 }
+
+
+function MySelect() {
+    const [value, setValue] = useState("java");
+    useEffect(()=>{
+        console.log(`Selected value ${value}`)
+    }, [value]);
+    return (
+      <Picker
+        selectedValue={value}
+        onValueChange={(itemValue) => setValue(itemValue)}
+      >
+        <Picker.Item label="Java" value="java" />
+        <Picker.Item label="JavaScript" value="js" />
+        <Picker.Item label="Python" value="py" />
+      </Picker>
+    );
+  }
 
 function InputBox({name})
 {
@@ -23,10 +42,10 @@ function InputBox({name})
                 value={text}
                 onChangeText={setText}
                 placeholder="Write something..."
-                keyboardType="numeric"
-                autoCorrect={false}
-                autoCapitalize="none"
+                autoCapitalize="characters"
+                keyboardType="default"
             />
+            <MySelect/>
         </View>
     );
 }
