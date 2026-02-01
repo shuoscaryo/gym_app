@@ -7,7 +7,7 @@ export default function App()
     return (
     <View style={styles.container}>
         <StatusBar style="auto"/>
-        <MyBoxInput name="miku" style={{width:"50%"}}/>
+        <MyBoxInput name="miku" style={{minWidth:"50%"}}/>
     </View>
     );
 }
