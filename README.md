@@ -272,3 +272,17 @@ export default function MyApp()
   )
 }
 ```
+### <u>**useEffect**</u>
+Use effect is a function that calls the selected function when a variable of useState changes. If not used, reading the useState variable may be the old value.
+The callback function takes no params.
+The second param of useEffect is a list with all the variables that if change trigger the function.
+```javascript
+import { useState, useEffect } from "react";
+
+const [var, setVar] = useState("");
+const [var2, setVar2] = useState("");
+  
+useEffect( () =>{
+  console.log("var or var2 changed");
+}, [var,var2]);
+```
