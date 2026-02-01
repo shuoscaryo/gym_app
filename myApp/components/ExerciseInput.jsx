@@ -20,8 +20,8 @@ export function ExerciseInput({name="name", style})
                     <MyTextInput
                         value={text}
                         onChangeText={setText}
-                        placeholder="Write something..."
-                        keyboardType="default"
+                        placeholder="Weight"
+                        keyboardType="numeric"
                     />
                     <MyTextInput
                         value={reps}
