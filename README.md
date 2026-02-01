@@ -124,6 +124,37 @@ import { Pressable } from 'react-native';
   <Text>Tap me</Text>
 </Pressable>
 ```
+TextInput is a form to write stuff. It needs a useState to work. ([link to props](https://reactnative.dev/docs/textinput)) Important props are:
+* **placeholder**: text that shows when nothing is written
+* **value**: Current input text. Usually value={text} from useState
+* **onChangeText**: Mandatory if value is used. callback when text changes. Usually onChangeText={setText} from useState
+* **keyboardType**: What kind of keyboard shows when writing on the form. "default", "email-address", "numeric", "phone-pad", "url"
+* **autoCapitalize**: By default is "sentences", is best to always add and turn off with "none"
+* **autoCorrect**: By default True, best to set to false.
+```javascript
+import {TextInput} from "react-native";
+import {useState} from "react";
+
+// Pattern that covers most of stuff
+function InputFunc({placeholder, initValue, keyboardType, style})
+{
+  const [text, setText] = useState(initValue);
+
+  // use all props so they are not forgotten!
+  return (
+    <TextInput
+      value={text}
+      onChangeText={setText}
+      placeholder={placeholder}
+      keyboardType={keyboardType}
+      autoCapitalize="none"
+      autoCorrect={false}
+      style={style}
+    />
+  );
+}
+```
+
 ### **Create custom components**
 Custom components can be created from functions.
 This functions are in PascalCase (in normal React don't work otherwise).
