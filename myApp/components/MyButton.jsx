@@ -1,12 +1,5 @@
 import { Pressable, StyleSheet, Text } from "react-native";
 
-function DefaultButton()
-{
-    return (
-        <Text>Click</Text>
-    );
-}
-
 export function MyButton({children, style, pressedStyle, ...props})
 {
     return (
@@ -19,7 +12,7 @@ export function MyButton({children, style, pressedStyle, ...props})
             ]}
             {...props}
         >
-            {children ?? <DefaultButton/>}
+            {children ?? <Text>Click</Text>}
         </Pressable>
     );
 }
