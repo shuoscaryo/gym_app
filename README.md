@@ -12,6 +12,9 @@ react mobile app to track progress in the gym
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 nvm install --lts
 nvm use --lts
+# reset terminal. If it doesn't work close and open terminal
+source ~/.bashrc
+npm install expo
 ```
 ### Create a new folder with the app
 with --template blank the app is created with the minimum things
