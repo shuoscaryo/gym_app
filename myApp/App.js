@@ -7,8 +7,7 @@ export default function App()
     return (
     <View style={styles.container}>
         <StatusBar style="auto"/>
-        <MyBoxInput name="miku"/>
-        <Text>Open up App.js to start working on your app!</Text>
+        <MyBoxInput name="miku" style={{width:"50%"}}/>
     </View>
     );
 }
@@ -16,7 +15,7 @@ export default function App()
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#5bb',
         alignItems: 'center',
         justifyContent: 'center',
     },

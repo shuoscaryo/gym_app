@@ -4,7 +4,7 @@ import { MyTextInput } from "@components/MyTextInput";
 import { MyButton } from "@components/MyButton";
 import { MySelect } from "@components/MySelect";
 
-export function MyBoxInput({name})
+export function MyBoxInput({name, style})
 {
     const [text, setText] = useState("");
     useEffect(() => {
@@ -12,7 +12,7 @@ export function MyBoxInput({name})
     }, [text]);
     
     return (
-        <View style = {defaultStyle}>
+        <View style = {[defaultStyle, style]}>
             <Text>{name}</Text>
             <MyButton onPress={()=>{}} text="add"/>
             <MyTextInput
