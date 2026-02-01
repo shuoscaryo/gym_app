@@ -6,9 +6,6 @@ import { MyButton } from "@components/MyButton";
 export function MyBoxInput({name, style})
 {
     const [text, setText] = useState("");
-    useEffect(() => {
-        console.log(`(${text})  cool text !`)
-    }, [text]);
     
     return (
         <View style = {[styles.main, style]}>
