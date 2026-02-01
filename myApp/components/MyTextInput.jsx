@@ -2,6 +2,7 @@ import {TextInput, StyleSheet} from "react-native";
 
 export function MyTextInput({ style, ...props })
 {
+    // autoCorrect and autoCapitalize are for the keyboard not the output text
     return (
         <TextInput
             autoCorrect={false}
